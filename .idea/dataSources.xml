@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="skysql-test" uuid="f5f553ec-d673-4fe9-8f5a-24046fe20fa3">
+      <driver-ref>mariadb</driver-ref>
+      <synchronize>true</synchronize>
+      <remarks>skysql-test</remarks>
+      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mariadb://test-db00008950.mdb0002865.db.skysql.net:5007/jdbc_demo?useSsl=true&amp;serverSslCert=$USER_HOME$/Downloads/skysql_chain.pem</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>
