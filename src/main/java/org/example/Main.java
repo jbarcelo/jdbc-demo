@@ -8,16 +8,16 @@ public class Main {
         System.out.println("Database application!");
         try {
             openDatabaseConnection();
-            //deleteData("%");
+            deleteData("%");
             readData();
             createData("Java",10);
             createData("Javascript",9);
             createData("C++",8);
             readData();
-            //updateData("C++",7);
-            //readData();
-            //deleteData("C++");
-            //readData();
+            updateData("C++",7);
+            readData();
+            deleteData("C++");
+            readData();
         } finally {
             closeDatabaseConnection();
         }
@@ -69,4 +69,27 @@ ORDER BY rating DESC
         }
     }
 
+    private static void updateData(String name, int newRating) throws SQLException {
+        try (PreparedStatement statement = connection.prepareStatement("""
+UPDATE programming_language
+SET rating = ?
+WHERE name = ?
+""")) {
+            statement.setInt(1, newRating);
+            statement.setString(2, name);
+            int rowsUpdated = statement.executeUpdate();
+            System.out.println("Rows updated" + rowsUpdated);
+        }
+    }
+
+    private static void deleteData(String name) throws SQLException {
+        try (PreparedStatement statement = connection.prepareStatement("""
+DELETE FROM programming_language
+WHERE name LIKE ?
+""")){
+            statement.setString(1, name);
+            int rowsDeleted = statement.executeUpdate();
+            System.out.println("Rows deleted" + rowsDeleted);
+        }
+    }
 }
